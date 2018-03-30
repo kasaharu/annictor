@@ -32,3 +32,17 @@ jobs:
       - run: echo "Start e2e"
       - run: yarn install
       - run: yarn e2e
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - lint:
+          requires:
+            - build
+      - test:
+          requires:
+            - build
+      - e2e:
+          requires:
+            - build
