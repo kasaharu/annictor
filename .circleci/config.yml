@@ -5,4 +5,22 @@ jobs:
       - image: circleci/node:8.9.4-stretch-browsers
     steps:
       - checkout
-      - run: echo "hello world"
+      - run: echo "Start build"
+      - run: yarn install
+      - run: yarn build
+  test:
+    docker:
+      - image: circleci/node:8.9.4-stretch-browsers
+    steps:
+      - checkout
+      - run: echo "Start test"
+      - run: yarn install
+      - run: yarn test --single-run
+  e2e:
+    docker:
+      - image: circleci/node:8.9.4-stretch-browsers
+    steps:
+      - checkout
+      - run: echo "Start e2e"
+      - run: yarn install
+      - run: yarn e2e
