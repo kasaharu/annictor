@@ -1,0 +1,48 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.9.4-stretch-browsers
+    steps:
+      - checkout
+      - run: echo "Start build"
+      - run: yarn install
+      - run: yarn build
+  lint:
+    docker:
+      - image: circleci/node:8.9.4-stretch-browsers
+    steps:
+      - checkout
+      - run: echo "Start lint"
+      - run: yarn install
+      - run: yarn lint
+  test:
+    docker:
+      - image: circleci/node:8.9.4-stretch-browsers
+    steps:
+      - checkout
+      - run: echo "Start test"
+      - run: yarn install
+      - run: yarn test --single-run
+  e2e:
+    docker:
+      - image: circleci/node:8.9.4-stretch-browsers
+    steps:
+      - checkout
+      - run: echo "Start e2e"
+      - run: yarn install
+      - run: yarn e2e
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - lint:
+          requires:
+            - build
+      - test:
+          requires:
+            - build
+      - e2e:
+          requires:
+            - build
