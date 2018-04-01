@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AnimeListComponent } from './anime-list.component';
+import { AnimeService } from '../../services/anime.service';
 
 describe('AnimeListComponent', () => {
   let component: AnimeListComponent;
@@ -8,7 +9,8 @@ describe('AnimeListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AnimeListComponent ]
+      declarations: [ AnimeListComponent ],
+      providers: [AnimeService],
     })
     .compileComponents();
   }));

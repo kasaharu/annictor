@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AnimeService } from '../../services/anime.service';
+
 @Component({
   selector: 'app-anime-list',
   templateUrl: './anime-list.component.html',
@@ -7,13 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnimeListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private animeService: AnimeService) { }
 
   ngOnInit() {
     this.fetchAnimeList();
   }
 
   fetchAnimeList(): void {
-    console.log('Call fetchAnimeList()');
+    this.animeService.fetchAnimeList();
   }
 }

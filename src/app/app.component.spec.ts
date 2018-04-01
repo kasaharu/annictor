@@ -1,6 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { AnimeListComponent } from './componets/anime-list/anime-list.component';
+import { AnimeService } from './services/anime.service';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -8,6 +9,7 @@ describe('AppComponent', () => {
         AppComponent,
         AnimeListComponent
       ],
+      providers: [AnimeService],
     }).compileComponents();
   }));
   it('should create the app', async(() => {
