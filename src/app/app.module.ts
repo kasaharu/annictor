@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { AnimeListComponent } from './componets/anime-list/anime-list.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AnimeListComponent
   ],
   imports: [
     BrowserModule
