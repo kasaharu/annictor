@@ -5,4 +5,7 @@ export class AnimeService {
 
   constructor() { }
 
+  fetchAnimeList(): void {
+    console.log('Call AnimeService:fetchAnimeList()');
+  }
 }
