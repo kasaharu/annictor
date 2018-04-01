@@ -10,6 +10,10 @@ export class AnimeListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.fetchAnimeList();
   }
 
+  fetchAnimeList(): void {
+    console.log('Call fetchAnimeList()');
+  }
 }
