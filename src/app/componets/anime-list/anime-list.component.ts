@@ -8,6 +8,7 @@ import { AnimeService } from '../../services/anime.service';
   styleUrls: ['./anime-list.component.scss']
 })
 export class AnimeListComponent implements OnInit {
+  animeList = []
 
   constructor(private animeService: AnimeService) { }
 
