@@ -9,7 +9,9 @@ export class AnimeService {
   constructor(private http: HttpClient) { }
 
   fetchAnimeList(): any {
-    const targetUrl = `${this.ANNICT_API_PATH}?access_token=${this.ANNICT_API_KEY}`;
+    const filterSeason = '2018-spring';
+
+    const targetUrl = `${this.ANNICT_API_PATH}?access_token=${this.ANNICT_API_KEY}&filter_season=${filterSeason}`;
     return this.http.get(targetUrl);
   }
 }
