@@ -11,7 +11,7 @@ export class AnimeService {
   fetchAnimeList(): any {
     const filterSeason = '2018-spring';
 
-    const targetUrl = `${this.ANNICT_API_PATH}?access_token=${this.ANNICT_API_KEY}&filter_season=${filterSeason}`;
+    const targetUrl = `${this.ANNICT_API_PATH}?access_token=${this.ANNICT_API_KEY}&filter_season=${filterSeason}&sort_watchers_count=desc`;
     return this.http.get(targetUrl);
   }
 }
