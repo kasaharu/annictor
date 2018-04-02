@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class AnimeService {
+  ANNICT_API_PATH = 'https://api.annict.com/v1/works';
+  ANNICT_API_KEY = '';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  fetchAnimeList(): void {
-    console.log('Call AnimeService:fetchAnimeList()');
+  fetchAnimeList(): any {
+    const targetUrl = `${this.ANNICT_API_PATH}?access_token=${this.ANNICT_API_KEY}`;
+    return this.http.get(targetUrl);
   }
 }
