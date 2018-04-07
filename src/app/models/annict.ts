@@ -7,4 +7,9 @@ export declare namespace Annict {
     season_name: string;
     season_name_text: string;
   }
+
+  export interface Anime {
+    works: AnimeDetail[];
+    next_page: number;
+  }
 }
