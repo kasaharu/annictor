@@ -23,6 +23,7 @@ jobs:
       - checkout
       - run: echo "Start test"
       - run: yarn install
+      - run: yarn prebuild
       - run: yarn test --single-run
   e2e:
     docker:
@@ -31,6 +32,7 @@ jobs:
       - checkout
       - run: echo "Start e2e"
       - run: yarn install
+      - run: yarn prebuild
       - run: yarn e2e
 workflows:
   version: 2

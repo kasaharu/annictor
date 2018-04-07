@@ -5,6 +5,7 @@
 /dist-server
 /tmp
 /out-tsc
+scripts/prebuild.js
 
 # dependencies
 /node_modules

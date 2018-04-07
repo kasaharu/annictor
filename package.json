@@ -8,7 +8,8 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "prebuild": "tsc scripts/prebuild.ts && node scripts/prebuild.js && node scripts/prebuild.js prod"
   },
   "private": true,
   "dependencies": {
