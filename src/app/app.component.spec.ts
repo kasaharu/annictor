@@ -1,4 +1,5 @@
 import { TestBed, async } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AnimeListComponent } from './componets/anime-list/anime-list.component';
 import { AnimeService } from './services/anime.service';
@@ -9,6 +10,7 @@ describe('AppComponent', () => {
         AppComponent,
         AnimeListComponent
       ],
+      imports: [HttpClientModule],
       providers: [AnimeService],
     }).compileComponents();
   }));
