@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 
 import { AnimeService } from '../../services/anime.service';
 
+import { Annict } from '../../models/annict';
+
 @Component({
   selector: 'app-anime-list',
   templateUrl: './anime-list.component.html',
   styleUrls: ['./anime-list.component.scss']
 })
 export class AnimeListComponent implements OnInit {
-  animeList = []
+  animeList: Annict.AnimeDetail[];
 
   constructor(private animeService: AnimeService) { }
 
@@ -17,6 +19,7 @@ export class AnimeListComponent implements OnInit {
   }
 
   fetchAnimeList(): void {
-    this.animeService.fetchAnimeList();
+    this.animeService.fetchAnimeList()
+      .subscribe(list => this.animeList = list.works);
   }
 }
