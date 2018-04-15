@@ -1,9 +1,15 @@
+@import 'mixin';
+
 .header {
   display: flex;
   align-items: center;
   width: 100%;
   height: 3rem;
   background-color: #673ab7;
+
+  @include sp-display {
+    justify-content: center;
+  }
 
   .logo {
     color: white;
