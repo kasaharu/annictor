@@ -6,6 +6,9 @@ export declare namespace Annict {
     title_kana: string;
     season_name: string;
     season_name_text: string;
+    images: {
+      recommended_url: string;
+    };
   }
 
   export interface Anime {
