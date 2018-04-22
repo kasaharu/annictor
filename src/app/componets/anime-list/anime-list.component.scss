@@ -1,2 +1,13 @@
 .mod-anime-list {
+  .anime-item {
+    display: flex;
+    height: 10rem;
+    border-bottom: solid 1px;
+
+    .item-thumbnail {
+      align-self: center;
+      width: 10rem;
+      height: auto;
+    }
+  }
 }

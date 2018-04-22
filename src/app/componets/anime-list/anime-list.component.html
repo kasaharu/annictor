@@ -1,7 +1,7 @@
 <div class="mod-anime-list">
   <span *ngFor="let anime of animeList">
-    <div>
-      {{anime.title}}
+    <div class="anime-item">
+      <img class="item-thumbnail" src="{{anime.images.recommended_url}}" />
     </div>
   </span>
 </div>
