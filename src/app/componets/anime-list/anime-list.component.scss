@@ -4,14 +4,19 @@
     height: 10rem;
     border-bottom: solid 1px;
 
-    .item-thumbnail {
+    .item-thumbnail-wrapper {
       align-self: center;
+      width: 10rem;
+    }
+
+    .item-thumbnail {
       width: 10rem;
       height: auto;
     }
 
     .item-contents {
-      margin-left: 1rem;
+      width: calc(100% - 10rem);
+      padding-left: 1rem;
     }
 
     .item-title {
