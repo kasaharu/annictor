@@ -6,6 +6,11 @@ export declare namespace Annict {
     title_kana: string;
     season_name: string;
     season_name_text: string;
+    watchers_count: string;
+    wikipedia_url: string;
+    images: {
+      recommended_url: string;
+    };
   }
 
   export interface Anime {
