@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./season.component.scss']
 })
 export class SeasonComponent implements OnInit {
+  selectedSeason: String;
 
   constructor() { }
 
   ngOnInit() {
+    this.selectedSeason = '2018-spring';
   }
 
 }
