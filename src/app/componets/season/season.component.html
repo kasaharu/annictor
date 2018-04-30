@@ -1,8 +1,7 @@
 <div class="mod-season">
-  <mat-select [(value)]="selectedSeason">
-    <mat-option>None</mat-option>
-    <mat-option value="2018-winter">2018年冬</mat-option>
-    <mat-option value="2018-spring">2018年春</mat-option>
-    <mat-option value="2018-summer">2018年夏</mat-option>
+  <mat-select>
+    <mat-option *ngFor="let season of seasonList" [value]="season.value">
+      {{season.displayName}}
+    </mat-option>
   </mat-select>
 </div>
