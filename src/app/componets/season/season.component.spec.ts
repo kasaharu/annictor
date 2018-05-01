@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatSelectModule } from '@angular/material/select';
 
 import { SeasonComponent } from './season.component';
 
@@ -8,7 +9,8 @@ describe('SeasonComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SeasonComponent ]
+      declarations: [ SeasonComponent ],
+      imports: [ MatSelectModule ],
     })
     .compileComponents();
   }));
