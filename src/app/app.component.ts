@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Annictor';
+  selectedSeasonId = '2018-spring';
+
+  getTargetSeasonId(seasonId: string): void {
+    this.selectedSeasonId = seasonId;
+  }
 }

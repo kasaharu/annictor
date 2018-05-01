@@ -1,0 +1,7 @@
+<div class="mod-season">
+  <mat-select (change)="selectSeason($event)">
+    <mat-option *ngFor="let season of seasonList" [value]="season.value">
+      {{season.displayName}}
+    </mat-option>
+  </mat-select>
+</div>

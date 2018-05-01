@@ -1,16 +1,20 @@
 import { TestBed, async } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSelectModule } from '@angular/material/select';
 import { AppComponent } from './app.component';
 import { AnimeListComponent } from './componets/anime-list/anime-list.component';
+import { SeasonComponent } from './componets/season/season.component';
 import { AnimeService } from './services/anime.service';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        AnimeListComponent
+        AnimeListComponent,
+        SeasonComponent,
       ],
-      imports: [HttpClientModule],
+      imports: [HttpClientModule, MatSelectModule],
       providers: [AnimeService],
     }).compileComponents();
   }));
