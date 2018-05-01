@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Annictor';
+  selectedSeasonId = '2018-spring';
 }
