@@ -19,8 +19,12 @@ export class AnimeListComponent implements OnInit {
     this.fetchAnimeList();
   }
 
+  ngOnChanges() {
+    this.fetchAnimeList();
+  }
+
   fetchAnimeList(): void {
-    const targetSeason = '2018-spring';
+    const targetSeason = this.seasonId;
     this.animeService.fetchAnimeList(targetSeason)
       .subscribe(list => this.animeList = list.works);
   }

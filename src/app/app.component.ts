@@ -10,6 +10,6 @@ export class AppComponent {
   selectedSeasonId = '2018-spring';
 
   getTargetSeasonId(seasonId: string): void {
-    console.log(seasonId);
+    this.selectedSeasonId = seasonId;
   }
 }
