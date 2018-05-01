@@ -61,7 +61,7 @@ workflows:
           requires:
             - lint
             - test
-            - e2e
+            # - e2e
           filters:
             branches:
               only: release
