@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
 import { AnimeService } from '../../services/anime.service';
 
@@ -9,7 +9,7 @@ import { Annict } from '../../models/annict';
   templateUrl: './anime-list.component.html',
   styleUrls: ['./anime-list.component.scss']
 })
-export class AnimeListComponent implements OnInit {
+export class AnimeListComponent implements OnInit, OnChanges {
   @Input() seasonId: string;
   animeList: Annict.AnimeDetail[];
 
