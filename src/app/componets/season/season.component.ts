@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-season',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./season.component.scss']
 })
 export class SeasonComponent implements OnInit {
+  @Output() selected = new EventEmitter<string>();
   seasonList = [
     { value: '2018-winter' , displayName: '2018年冬' },
     { value: '2018-spring' , displayName: '2018年春' },
@@ -15,7 +16,9 @@ export class SeasonComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.selectedSeason = '2018-spring';
   }
 
+  selectSeason($event) {
+    this.selected.emit($event.value);
+  }
 }

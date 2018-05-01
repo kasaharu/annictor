@@ -4,7 +4,7 @@
   </div>
 </header>
 <main class="main">
-  <app-season></app-season>
+  <app-season (selected)="getTargetSeasonId($event)"></app-season>
   <app-anime-list [seasonId]="selectedSeasonId">
   </app-anime-list>
 </main>
