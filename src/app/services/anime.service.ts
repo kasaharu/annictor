@@ -12,9 +12,7 @@ export class AnimeService {
 
   constructor(private http: HttpClient) { }
 
-  fetchAnimeList(): Observable<Annict.Anime> {
-    const filterSeason = '2018-spring';
-
+  fetchAnimeList(filterSeason: string): Observable<Annict.Anime> {
     const targetUrl = `${this.ANNICT_API_PATH}?access_token=${this.ANNICT_API_KEY}&filter_season=${filterSeason}&sort_watchers_count=desc`;
     return this.http.get<Annict.Anime>(targetUrl);
   }

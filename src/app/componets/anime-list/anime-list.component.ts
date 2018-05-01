@@ -20,7 +20,8 @@ export class AnimeListComponent implements OnInit {
   }
 
   fetchAnimeList(): void {
-    this.animeService.fetchAnimeList()
+    const targetSeason = '2018-spring';
+    this.animeService.fetchAnimeList(targetSeason)
       .subscribe(list => this.animeList = list.works);
   }
 }
