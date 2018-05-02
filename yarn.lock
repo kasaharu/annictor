@@ -171,6 +171,12 @@
   dependencies:
     tslib "^1.7.1"
 
+"@angular/service-worker@^5.2.10":
+  version "5.2.10"
+  resolved "https://registry.yarnpkg.com/@angular/service-worker/-/service-worker-5.2.10.tgz#ef861929e2ca5f1241f44be1ad5295544486514c"
+  dependencies:
+    tslib "^1.7.1"
+
 "@google-cloud/common@^0.16.1":
   version "0.16.2"
   resolved "https://registry.yarnpkg.com/@google-cloud/common/-/common-0.16.2.tgz#029b3c7c4a425f1374045ba8f6a878bd50e4761c"
