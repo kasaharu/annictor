@@ -14,6 +14,7 @@ import { AnimeService } from './services/anime.service';
 import { AppComponent } from './app.component';
 import { AnimeListComponent } from './componets/anime-list/anime-list.component';
 import { SeasonComponent } from './componets/season/season.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SeasonComponent } from './componets/season/season.component';
     MatButtonModule,
     MatSelectModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    AppRoutingModule,
   ],
   providers: [AnimeService],
   bootstrap: [AppComponent]
