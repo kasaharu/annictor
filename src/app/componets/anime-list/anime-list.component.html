@@ -1,4 +1,6 @@
 <div class="mod-anime-list">
+  <app-season (selected)="getTargetSeasonId($event)"></app-season>
+
   <span *ngFor="let anime of animeList">
     <div class="anime-item">
       <div class="item-thumbnail-wrapper">
