@@ -24,7 +24,7 @@ jobs:
       - run: echo "Start test"
       - run: yarn install
       - run: yarn prebuild
-      - run: yarn test --single-run
+      - run: yarn test --watch=false
   e2e:
     docker:
       - image: circleci/node:8.9.4-stretch-browsers
