@@ -77,10 +77,10 @@ workflows:
             - package_install
       - lint:
           requires:
-            - build
+            - package_install
       - test:
           requires:
-            - build
+            - package_install
       # - e2e:
       # -   requires:
       # -     - build
