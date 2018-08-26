@@ -1,4 +1,18 @@
 version: 2
+
+references:
+  npm_cache_key: &npm_cache_key
+    annictor-v1-dependency-npm-{{ checksum "yarn.lock" }}
+  save_node_modules: &save_node_modules
+    save_cache:
+      key: *npm_cache_key
+      paths:
+        - node_modules
+  restore_node_modules: &restore_node_modules
+    restore_cache:
+      keys:
+        - *npm_cache_key
+
 jobs:
   build:
     docker:
