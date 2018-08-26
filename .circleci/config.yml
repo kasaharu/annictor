@@ -1,12 +1,36 @@
 version: 2
+
+references:
+  npm_cache_key: &npm_cache_key
+    annictor-v1-dependency-npm-{{ checksum "yarn.lock" }}
+  save_node_modules: &save_node_modules
+    save_cache:
+      key: *npm_cache_key
+      paths:
+        - node_modules
+  restore_node_modules: &restore_node_modules
+    restore_cache:
+      keys:
+        - *npm_cache_key
+
 jobs:
+  package_install:
+    docker:
+      - image: circleci/node:8.11.4-stretch-browsers
+    steps:
+      - checkout
+      - run: echo "Start installing the packages"
+      - *restore_node_modules
+      - run: yarn install
+      - *save_node_modules
+
   build:
     docker:
       - image: circleci/node:8.11.4-stretch-browsers
     steps:
       - checkout
       - run: echo "Start build"
-      - run: yarn install
+      - *restore_node_modules
       - run: yarn build
   lint:
     docker:
@@ -14,7 +38,7 @@ jobs:
     steps:
       - checkout
       - run: echo "Start lint"
-      - run: yarn install
+      - *restore_node_modules
       - run: yarn lint
   test:
     docker:
@@ -22,7 +46,7 @@ jobs:
     steps:
       - checkout
       - run: echo "Start test"
-      - run: yarn install
+      - *restore_node_modules
       - run: yarn prebuild
       - run: yarn test --watch=false
   e2e:
@@ -31,7 +55,7 @@ jobs:
     steps:
       - checkout
       - run: echo "Start e2e"
-      - run: yarn install
+      - *restore_node_modules
       - run: yarn prebuild
       - run: yarn e2e
   deploy:
@@ -40,20 +64,23 @@ jobs:
     steps:
       - checkout
       - run: echo "Start deploy"
-      - run: yarn install
+      - *restore_node_modules
       - run: yarn build
       - run: yarn deploy
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - build
+      - package_install
+      - build:
+          requires:
+            - package_install
       - lint:
           requires:
-            - build
+            - package_install
       - test:
           requires:
-            - build
+            - package_install
       # - e2e:
       # -   requires:
       # -     - build
