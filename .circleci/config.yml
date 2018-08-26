@@ -14,6 +14,16 @@ references:
         - *npm_cache_key
 
 jobs:
+  package_install:
+    docker:
+      - image: circleci/node:8.11.4-stretch-browsers
+    steps:
+      - checkout
+      - run: echo "Start installing the packages"
+      - *restore_node_modules
+      - run: yarn install
+      - *save_node_modules
+
   build:
     docker:
       - image: circleci/node:8.11.4-stretch-browsers
@@ -61,7 +71,10 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build
+      - package_install
+      - build:
+          requires:
+            - package_install
       - lint:
           requires:
             - build
