@@ -30,7 +30,7 @@ jobs:
     steps:
       - checkout
       - run: echo "Start build"
-      - run: yarn install
+      - *restore_node_modules
       - run: yarn build
   lint:
     docker:
@@ -38,7 +38,7 @@ jobs:
     steps:
       - checkout
       - run: echo "Start lint"
-      - run: yarn install
+      - *restore_node_modules
       - run: yarn lint
   test:
     docker:
@@ -46,7 +46,7 @@ jobs:
     steps:
       - checkout
       - run: echo "Start test"
-      - run: yarn install
+      - *restore_node_modules
       - run: yarn prebuild
       - run: yarn test --watch=false
   e2e:
@@ -55,7 +55,7 @@ jobs:
     steps:
       - checkout
       - run: echo "Start e2e"
-      - run: yarn install
+      - *restore_node_modules
       - run: yarn prebuild
       - run: yarn e2e
   deploy:
@@ -64,7 +64,7 @@ jobs:
     steps:
       - checkout
       - run: echo "Start deploy"
-      - run: yarn install
+      - *restore_node_modules
       - run: yarn build
       - run: yarn deploy
 workflows:
