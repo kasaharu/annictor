@@ -7,7 +7,7 @@ import { Annict } from '../../models/annict';
 @Component({
   selector: 'app-anime-list',
   templateUrl: './anime-list.component.html',
-  styleUrls: ['./anime-list.component.scss']
+  styleUrls: ['./anime-list.component.scss'],
 })
 export class AnimeListComponent implements OnInit {
   seasonId = '2018-spring';
