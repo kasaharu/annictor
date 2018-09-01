@@ -7,7 +7,7 @@ describe('AnimeService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
-      providers: [AnimeService]
+      providers: [AnimeService],
     });
   });
 

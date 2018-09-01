@@ -20,7 +20,7 @@ import { AppRoutingModule } from './/app-routing.module';
   declarations: [
     AppComponent,
     AnimeListComponent,
-    SeasonComponent
+    SeasonComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +32,6 @@ import { AppRoutingModule } from './/app-routing.module';
     AppRoutingModule,
   ],
   providers: [AnimeService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
