@@ -5,7 +5,7 @@ import { PeriodService } from './period.service';
 describe('PeriodService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [PeriodService]
+      providers: [PeriodService],
     });
   });
 
