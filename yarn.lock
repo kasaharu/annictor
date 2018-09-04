@@ -6600,9 +6600,9 @@ rx-lite@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/rx-lite/-/rx-lite-3.1.2.tgz#19ce502ca572665f3b647b10939f97fd1615f102"
 
-rxjs-compat@6.3.1:
-  version "6.3.1"
-  resolved "https://registry.yarnpkg.com/rxjs-compat/-/rxjs-compat-6.3.1.tgz#9ad8a76110bb0f37fa7906be377909970135b909"
+rxjs-compat@6.3.2:
+  version "6.3.2"
+  resolved "https://registry.yarnpkg.com/rxjs-compat/-/rxjs-compat-6.3.2.tgz#2386ade05e693480fdf96f56042a629aef6c5ea5"
 
 rxjs@6.3.2:
   version "6.3.2"
