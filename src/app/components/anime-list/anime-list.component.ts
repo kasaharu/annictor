@@ -11,12 +11,13 @@ import { Annict } from '../../models/annict';
   styleUrls: ['./anime-list.component.scss'],
 })
 export class AnimeListComponent implements OnInit {
-  seasonId = '2018-spring';
+  seasonId: string;
   animeList: Annict.AnimeDetail[];
 
   constructor(private animeService: AnimeService, private periodService: PeriodService) { }
 
   ngOnInit() {
+    this.seasonId = this.periodService.getThisPeriod();
     this.fetchAnimeList();
   }
 
