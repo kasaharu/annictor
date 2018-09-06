@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AnimeService } from '../../services/anime.service';
+import { PeriodService } from '../../services/period.service';
 
 import { Annict } from '../../models/annict';
 
@@ -13,7 +14,7 @@ export class AnimeListComponent implements OnInit {
   seasonId = '2018-spring';
   animeList: Annict.AnimeDetail[];
 
-  constructor(private animeService: AnimeService) { }
+  constructor(private animeService: AnimeService, private periodService: PeriodService) { }
 
   ngOnInit() {
     this.fetchAnimeList();
