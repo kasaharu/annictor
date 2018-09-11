@@ -21,6 +21,6 @@ export class PeriodService {
     const thisYear = today.getFullYear();
     const thisSeason = this.getThisSeason(today.getMonth() + 1);
 
-    return thisYear + '-' + thisSeason;
+    return `${thisYear}-${thisSeason}`;
   }
 }
