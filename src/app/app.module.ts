@@ -10,6 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { environment } from '../environments/environment';
 
 import { AnimeService } from './services/anime.service';
+import { PeriodService } from './services/period.service';
 
 import { AppComponent } from './app.component';
 import { AnimeListComponent } from './components/anime-list/anime-list.component';
@@ -31,7 +32,7 @@ import { AppRoutingModule } from './/app-routing.module';
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     AppRoutingModule,
   ],
-  providers: [AnimeService],
+  providers: [AnimeService, PeriodService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
