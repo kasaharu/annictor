@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
 import { MatSelectModule } from '@angular/material/select';
 
 import { AnimeListComponent } from './anime-list.component';
@@ -13,7 +14,7 @@ describe('AnimeListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AnimeListComponent, SeasonComponent ],
-      imports: [HttpClientModule, MatSelectModule],
+      imports: [RouterTestingModule, HttpClientModule, MatSelectModule],
       providers: [AnimeService],
     })
     .compileComponents();
