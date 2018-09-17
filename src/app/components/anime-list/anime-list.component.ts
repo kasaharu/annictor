@@ -23,7 +23,8 @@ export class AnimeListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.seasonId = this.route.snapshot.paramMap.get('seasonId');
+    this.route.paramMap.subscribe(params => this.seasonId = params['seasonId']);
+
     if (!this.seasonId) {
       this.seasonId = this.periodService.getThisPeriod();
       this.router.navigate(['/anime-list', this.seasonId]);
