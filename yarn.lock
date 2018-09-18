@@ -352,11 +352,11 @@
     through2 "^2.0.0"
     xdg-basedir "^3.0.0"
 
-"@ngrx/effects@^6.1.0":
+"@ngrx/effects@6.1.0":
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-6.1.0.tgz#3c1e1ab1e5a86c6d9c29d4f3771e42cc9bd8576c"
 
-"@ngrx/store@^6.1.0":
+"@ngrx/store@6.1.0":
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-6.1.0.tgz#5b027647a797bf027912568214b10375dd75af38"
 
