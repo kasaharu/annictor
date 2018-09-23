@@ -12,7 +12,7 @@ export class FetchRequstAction implements Action {
 
 export class FetchSuccessAction implements Action {
   readonly type = ActionTypes.FETCH_SUCCESS;
-  constructor(public payload: { animeList: AnimeList }) {}
+  constructor(public payload: AnimeList) {}
 }
 
 export type ActionsUnion = FetchRequstAction | FetchSuccessAction;
