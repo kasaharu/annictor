@@ -16,12 +16,14 @@ import { AppComponent } from './app.component';
 import { AnimeListComponent } from './components/anime-list/anime-list.component';
 import { SeasonComponent } from './components/season/season.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { WorksComponent } from './containers/works/works.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AnimeListComponent,
     SeasonComponent,
+    WorksComponent,
   ],
   imports: [
     BrowserModule,
