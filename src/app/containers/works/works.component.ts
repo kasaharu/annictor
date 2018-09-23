@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { RootStoreState, AnimeStoreSelectors } from '../../root-store';
+import { RootStoreState, AnimeStoreActions, AnimeStoreSelectors } from '../../root-store';
 import { AnimeList } from '../../core/models';
 
 @Component({
@@ -17,5 +17,10 @@ export class WorksComponent implements OnInit {
 
   ngOnInit() {
     this.animeList$ = this.store$.select(AnimeStoreSelectors.selectAnimeList);
+    this.fetchAnimeList();
+  }
+
+  fetchAnimeList() {
+    this.store$.dispatch(new AnimeStoreActions.FetchRequstAction());
   }
 }
