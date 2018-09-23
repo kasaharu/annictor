@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AnimeListComponent } from './components/anime-list/anime-list.component';
+import { WorksComponent } from './containers/works/works.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/anime-list', pathMatch: 'full' },
-  { path: 'anime-list', component: AnimeListComponent },
-  { path: 'anime-list/:seasonId', component: AnimeListComponent },
+  { path: 'anime-list', component: WorksComponent },
+  { path: 'anime-list/:seasonId', component: WorksComponent },
 ];
 
 @NgModule({
