@@ -6,6 +6,7 @@ import { WorksComponent } from './works.component';
 
 import { ActivatedRouteStub } from '../../testing/activated-route-stub';
 import { RootStoreModule } from '../../root-store';
+import { AnimeListComponent } from '../../components/anime-list/anime-list.component';
 import { AnimeService } from '../../services/anime.service';
 
 describe('WorksComponent', () => {
@@ -16,7 +17,7 @@ describe('WorksComponent', () => {
   beforeEach(async(() => {
     const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
     TestBed.configureTestingModule({
-      declarations: [ WorksComponent ],
+      declarations: [WorksComponent, AnimeListComponent],
       imports: [HttpClientModule, RootStoreModule],
       providers: [
         AnimeService,
