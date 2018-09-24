@@ -11,12 +11,12 @@ import { AnimeList } from '../../core/models';
   styleUrls: ['./works.component.scss'],
 })
 export class WorksComponent implements OnInit {
-  animeList$: Observable<AnimeList>
+  animeList$: Observable<AnimeList>;
 
   constructor(private store$: Store<RootStoreState.State>) { }
 
   ngOnInit() {
-    this.animeList$ = this.store$.select(AnimeStoreSelectors.selectAnimeList);
+    this.animeList$ = this.store$.pipe(select(AnimeStoreSelectors.selectAnimeList));
     this.fetchAnimeList();
   }
 
