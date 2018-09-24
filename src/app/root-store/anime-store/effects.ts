@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { Action, Store, select } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
-import { mergeMap, map, tap, withLatestFrom } from 'rxjs/operators';
+import { Action } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { mergeMap, map } from 'rxjs/operators';
 
 import * as AnimeStoreActions from './actions';
-import { selectAnimeListState } from './selectors';
-import { State } from './state';
 
 import { AnimeService } from '../../services/anime.service';
 
@@ -14,7 +12,6 @@ import { AnimeService } from '../../services/anime.service';
 export class AnimeStoreEffects {
   constructor(
     private actions$: Actions,
-    private store: Store<State>,
     private animeService: AnimeService,
   ) {}
 
