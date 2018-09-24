@@ -8,6 +8,7 @@ export enum ActionTypes {
 
 export class FetchRequstAction implements Action {
   readonly type = ActionTypes.FETCH_REQUEST;
+  constructor(public payload: string) {}
 }
 
 export class FetchSuccessAction implements Action {

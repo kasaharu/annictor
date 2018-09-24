@@ -21,6 +21,6 @@ export class WorksComponent implements OnInit {
   }
 
   fetchAnimeList() {
-    this.store$.dispatch(new AnimeStoreActions.FetchRequstAction());
+    this.store$.dispatch(new AnimeStoreActions.FetchRequstAction('2019-winter'));
   }
 }

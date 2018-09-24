@@ -20,9 +20,9 @@ export class AnimeStoreEffects {
 
   @Effect()
   fetch$: Observable<Action> = this.actions$.pipe(
-    ofType(AnimeStoreActions.ActionTypes.FETCH_REQUEST),
-    mergeMap(_ =>
-      this.animeService.fetchAnimeList('2019-winter').pipe(
+    ofType<AnimeStoreActions.FetchRequstAction>(AnimeStoreActions.ActionTypes.FETCH_REQUEST),
+    mergeMap(action =>
+      this.animeService.fetchAnimeList(action.payload).pipe(
         map(result => new AnimeStoreActions.FetchSuccessAction(result)),
       ),
     ),
