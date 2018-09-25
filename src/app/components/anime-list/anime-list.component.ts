@@ -1,10 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
 
-import { AnimeService } from '../../services/anime.service';
-import { PeriodService } from '../../services/period.service';
-
-import { Annict } from '../../models/annict';
+import { AnimeList } from '../../core/models';
 
 @Component({
   selector: 'app-anime-list',
@@ -12,35 +8,10 @@ import { Annict } from '../../models/annict';
   styleUrls: ['./anime-list.component.scss'],
 })
 export class AnimeListComponent implements OnInit {
-  seasonId: string;
-  animeList: Annict.AnimeDetail[];
+  @Input() animeList: AnimeList;
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private animeService: AnimeService,
-    private periodService: PeriodService,
-  ) { }
+  constructor() {}
 
   ngOnInit() {
-    this.route.paramMap.subscribe((params) => {
-      this.seasonId = params.get('seasonId');
-      if (!this.seasonId) {
-        this.seasonId = this.periodService.getThisPeriod();
-        this.router.navigate(['/anime-list', this.seasonId]);
-      }
-      this.fetchAnimeList();
-    });
-  }
-
-  fetchAnimeList(): void {
-    const targetSeason = this.seasonId;
-    this.animeService.fetchAnimeList(targetSeason)
-      .subscribe(list => this.animeList = list.works);
-  }
-
-  getTargetSeasonId(seasonId: string): void {
-    this.seasonId = seasonId;
-    this.fetchAnimeList();
   }
 }

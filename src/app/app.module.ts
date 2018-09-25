@@ -16,12 +16,15 @@ import { AppComponent } from './app.component';
 import { AnimeListComponent } from './components/anime-list/anime-list.component';
 import { SeasonComponent } from './components/season/season.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { RootStoreModule } from './root-store';
+import { WorksComponent } from './containers/works/works.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AnimeListComponent,
     SeasonComponent,
+    WorksComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ import { AppRoutingModule } from './/app-routing.module';
     MatSelectModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     AppRoutingModule,
+    RootStoreModule,
   ],
   providers: [AnimeService, PeriodService],
   bootstrap: [AppComponent],

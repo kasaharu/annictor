@@ -6,7 +6,7 @@ export function animeReducer(state: State = initialState, action: ActionsUnion):
     case ActionTypes.FETCH_REQUEST:
       return state;
     case ActionTypes.FETCH_SUCCESS:
-      return action.payload;
+      return { animeList: action.payload };
     default:
       return state;
   }
