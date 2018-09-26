@@ -18,7 +18,15 @@ module.exports = function (config) {
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, 'coverage'),
       reports: ['html', 'lcovonly', 'text-summary'],
-      fixWebpackSourcePaths: true
+      fixWebpackSourcePaths: true,
+      thresholds: {
+        global: {
+          statements: 100,
+          lines: 100,
+          branches: 100,
+          functions: 100,
+        }
+      }
     },
     angularCli: {
       environment: 'dev'
