@@ -16,3 +16,7 @@ export interface AnimeList {
   works: AnimeDetail[];
   next_page: number;
 }
+
+export interface Season {
+  id: string;
+}
