@@ -1,67 +1,94 @@
 version: 2
+
+references:
+  npm_cache_key: &npm_cache_key
+    annictor-v1-dependency-npm-{{ checksum "yarn.lock" }}
+  save_node_modules: &save_node_modules
+    save_cache:
+      key: *npm_cache_key
+      paths:
+        - node_modules
+  restore_node_modules: &restore_node_modules
+    restore_cache:
+      keys:
+        - *npm_cache_key
+
 jobs:
+  package_install:
+    docker:
+      - image: circleci/node:8.12.0-stretch-browsers
+    steps:
+      - checkout
+      - run: echo "Start installing the packages"
+      - *restore_node_modules
+      - run: yarn install
+      - *save_node_modules
+
   build:
     docker:
-      - image: circleci/node:8.9.4-stretch-browsers
+      - image: circleci/node:8.12.0-stretch-browsers
     steps:
       - checkout
       - run: echo "Start build"
-      - run: yarn install
+      - *restore_node_modules
       - run: yarn build
   lint:
     docker:
-      - image: circleci/node:8.9.4-stretch-browsers
+      - image: circleci/node:8.12.0-stretch-browsers
     steps:
       - checkout
       - run: echo "Start lint"
-      - run: yarn install
+      - *restore_node_modules
       - run: yarn lint
   test:
     docker:
-      - image: circleci/node:8.9.4-stretch-browsers
+      - image: circleci/node:8.12.0-stretch-browsers
     steps:
       - checkout
       - run: echo "Start test"
-      - run: yarn install
+      - *restore_node_modules
       - run: yarn prebuild
-      - run: yarn test --single-run
+      - run: yarn test:1
   e2e:
     docker:
-      - image: circleci/node:8.9.4-stretch-browsers
+      - image: circleci/node:8.12.0-stretch-browsers
     steps:
       - checkout
       - run: echo "Start e2e"
-      - run: yarn install
+      - *restore_node_modules
       - run: yarn prebuild
       - run: yarn e2e
   deploy:
     docker:
-      - image: circleci/node:8.9.4-stretch-browsers
+      - image: circleci/node:8.12.0-stretch-browsers
     steps:
       - checkout
       - run: echo "Start deploy"
-      - run: yarn install
+      - *restore_node_modules
       - run: yarn build
       - run: yarn deploy
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - build
+      - package_install
+      - build:
+          requires:
+            - package_install
       - lint:
           requires:
-            - build
+            - package_install
       - test:
           requires:
+            - package_install
+      - e2e:
+          requires:
             - build
-      # - e2e:
-      # -   requires:
-      # -     - build
       - deploy:
           requires:
             - lint
             - test
-            # - e2e
+            - e2e
           filters:
             branches:
               only: release

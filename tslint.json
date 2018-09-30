@@ -11,14 +11,18 @@
       "check-space"
     ],
     "curly": true,
+    "cyclomatic-complexity": [
+      true,
+      20
+    ],
     "deprecation": {
       "severity": "warn"
     },
+    "encoding": true,
     "eofline": true,
     "forin": true,
     "import-blacklist": [
       true,
-      "rxjs",
       "rxjs/Rx"
     ],
     "import-spacing": true,
@@ -28,6 +32,13 @@
     ],
     "interface-over-type-literal": true,
     "label-position": true,
+    "linebreak-style": [
+      true, "LF"
+    ],
+    "max-file-line-count": [
+      true,
+      100
+    ],
     "max-line-length": [
       true,
       140
@@ -46,16 +57,20 @@
     ],
     "no-arg": true,
     "no-bitwise": true,
+    "no-boolean-literal-compare": true,
+    "no-consecutive-blank-lines": true,
     "no-console": [
       true,
       "debug",
       "info",
       "time",
       "timeEnd",
-      "trace"
+      "trace",
+      "log"
     ],
     "no-construct": true,
     "no-debugger": true,
+    "no-duplicate-imports": true,
     "no-duplicate-super": true,
     "no-empty": false,
     "no-empty-interface": true,
@@ -73,6 +88,7 @@
     "no-trailing-whitespace": true,
     "no-unnecessary-initializer": true,
     "no-unused-expression": true,
+    "no-unused-variable": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
@@ -84,6 +100,7 @@
       "check-whitespace"
     ],
     "prefer-const": true,
+    "prefer-template": true,
     "quotemark": [
       true,
       "single"
@@ -92,6 +109,13 @@
     "semicolon": [
       true,
       "always"
+    ],
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "always",
+        "singleline": "never"
+      }
     ],
     "triple-equals": [
       true,
@@ -108,7 +132,7 @@
       }
     ],
     "unified-signatures": true,
-    "variable-name": false,
+    "variable-name": true,
     "whitespace": [
       true,
       "check-branch",
@@ -116,18 +140,6 @@
       "check-operator",
       "check-separator",
       "check-type"
-    ],
-    "directive-selector": [
-      true,
-      "attribute",
-      "app",
-      "camelCase"
-    ],
-    "component-selector": [
-      true,
-      "element",
-      "app",
-      "kebab-case"
     ],
     "no-output-on-prefix": true,
     "use-input-property-decorator": true,

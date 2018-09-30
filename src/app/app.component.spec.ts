@@ -1,9 +1,10 @@
 import { TestBed, async } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
 import { MatSelectModule } from '@angular/material/select';
 import { AppComponent } from './app.component';
-import { AnimeListComponent } from './componets/anime-list/anime-list.component';
-import { SeasonComponent } from './componets/season/season.component';
+import { AnimeListComponent } from './components/anime-list/anime-list.component';
+import { SeasonComponent } from './components/season/season.component';
 import { AnimeService } from './services/anime.service';
 
 describe('AppComponent', () => {
@@ -14,7 +15,7 @@ describe('AppComponent', () => {
         AnimeListComponent,
         SeasonComponent,
       ],
-      imports: [HttpClientModule, MatSelectModule],
+      imports: [HttpClientModule, MatSelectModule, RouterTestingModule],
       providers: [AnimeService],
     }).compileComponents();
   }));

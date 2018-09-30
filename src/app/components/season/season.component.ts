@@ -3,7 +3,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-season',
   templateUrl: './season.component.html',
-  styleUrls: ['./season.component.scss']
+  styleUrls: ['./season.component.scss'],
 })
 export class SeasonComponent implements OnInit {
   @Output() selected = new EventEmitter<string>();
