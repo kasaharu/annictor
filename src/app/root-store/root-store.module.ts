@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { AnimeStoreModule } from './anime-store/anime-store.module';
+import { SeasonStoreModule } from './season-store/season-store.module';
 
 @NgModule({
   imports: [
@@ -10,6 +11,7 @@ import { AnimeStoreModule } from './anime-store/anime-store.module';
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     AnimeStoreModule,
+    SeasonStoreModule,
   ],
   declarations: [],
 })
