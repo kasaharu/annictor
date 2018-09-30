@@ -15,7 +15,6 @@ import { PeriodService } from '../../services/period.service';
 })
 export class WorksComponent implements OnInit {
   animeList$: Observable<AnimeList>;
-  seasonId: string;
 
   constructor(
     private store$: Store<RootStoreState.State>,
@@ -26,13 +25,14 @@ export class WorksComponent implements OnInit {
 
   ngOnInit() {
     this.animeList$ = this.store$.pipe(select(AnimeStoreSelectors.selectAnimeList));
+
     this.route.paramMap.subscribe((params) => {
-      this.seasonId = params.get('seasonId');
-      if (!this.seasonId) {
-        this.seasonId = this.periodService.getThisPeriod();
-        this.router.navigate(['/works', this.seasonId]);
+      let seasonId = params.get('seasonId');
+      if (!seasonId) {
+        seasonId = this.periodService.getThisPeriod();
+        this.router.navigate(['/works', seasonId]);
       }
-      this.fetchAnimeList(this.seasonId);
+      this.fetchAnimeList(seasonId);
     });
   }
 
