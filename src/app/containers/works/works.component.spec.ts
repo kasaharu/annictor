@@ -37,4 +37,9 @@ describe('WorksComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('URL path に seasonId を持っている場合', () => {
+    activatedRoute.setParamMap({ seasonId: '2020-spring' });
+    expect(component).toBeTruthy();
+  });
 });
