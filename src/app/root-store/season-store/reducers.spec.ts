@@ -12,8 +12,8 @@ describe('seasonReducer', () => {
 
   it('should fetch success', () => {
     const seasonId = '2020-spring';
-    const expectedSeason = { id: '2020-spring' };
-    const expectedState = { season: { id: '2020-spring' } };
+    const expectedSeason = { id: seasonId };
+    const expectedState = { season: expectedSeason };
     expect(seasonReducer(testState, new FetchSuccessAction(expectedSeason))).toEqual(expectedState);
   });
 });
