@@ -12,6 +12,10 @@
     {
       "groupName": "RxJs package",
       "packagePatterns": ["^rxjs"]
+    },
+    {
+      "groupName": "Unit test package",
+      "packagePatterns": ["^karma", "^jasmine"]
     }
   ]
 }
