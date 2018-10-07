@@ -41,11 +41,15 @@ export class WorksComponent implements OnInit {
         this.router.navigate(['/works', seasonId]);
       }
       this.fetchAnimeList(seasonId);
-      this.store$.dispatch(new SeasonStoreActions.SaveRequstAction(seasonId));
+      this.saveSeason(seasonId);
     });
   }
 
   fetchAnimeList(seasonId: string) {
     this.store$.dispatch(new AnimeStoreActions.FetchRequstAction(seasonId));
+  }
+
+  saveSeason(seasonId: string) {
+    this.store$.dispatch(new SeasonStoreActions.SaveRequstAction(seasonId));
   }
 }
