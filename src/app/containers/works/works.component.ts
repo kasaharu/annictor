@@ -7,6 +7,7 @@ import {
   RootStoreState,
   AnimeStoreActions,
   AnimeStoreSelectors,
+  SeasonStoreActions,
   SeasonStoreSelectors,
 } from '../../root-store';
 import { AnimeList, Season } from '../../core/models';
@@ -40,6 +41,7 @@ export class WorksComponent implements OnInit {
         this.router.navigate(['/works', seasonId]);
       }
       this.fetchAnimeList(seasonId);
+      this.store$.dispatch(new SeasonStoreActions.SaveRequstAction(seasonId));
     });
   }
 
