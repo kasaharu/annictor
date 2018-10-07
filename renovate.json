@@ -8,6 +8,7 @@
   "patch": { "automerge": true },
   "devDependencies": { "automerge": true },
   "schedule": ["every weekend"],
+  "labels": ["Renovate"],
   "packageRules": [
     {
       "groupName": "RxJs package",
