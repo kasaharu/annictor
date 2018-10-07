@@ -4,6 +4,8 @@ import { Season } from '../../core/models';
 export enum ActionTypes {
   FETCH_REQUEST = '[Season] Fetch Request',
   FETCH_SUCCESS = '[Season] Fetch Success',
+  Save_REQUEST = '[Season] Save Request',
+  Save_SUCCESS = '[Season] Save Success',
 }
 
 export class FetchRequstAction implements Action {
