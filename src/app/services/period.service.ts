@@ -23,4 +23,16 @@ export class PeriodService {
 
     return `${thisYear}-${thisSeason}`;
   }
+
+  convertToDisplaySeason(seasonId: string) {
+    const seasonMap = {
+      spring: '春',
+      summer: '夏',
+      autumn: '秋',
+      winter: '冬',
+    };
+    const [year, season] = seasonId.split('-');
+
+    return `${year}年${seasonMap[season]}`;
+  }
 }
