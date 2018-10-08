@@ -49,7 +49,7 @@ describe('WorksComponent', () => {
 
   it('call fetchAnimeList() method', () => {
     const seasonId = '2020-spring';
-    const action = new AnimeStoreActions.FetchRequstAction(seasonId)
+    const action = new AnimeStoreActions.FetchRequstAction(seasonId);
     component.fetchAnimeList(seasonId);
 
     expect(store$.dispatch).toHaveBeenCalledWith(action);
@@ -57,7 +57,7 @@ describe('WorksComponent', () => {
 
   it('call saveSeason() method', () => {
     const seasonId = '2020-spring';
-    const action = new SeasonStoreActions.SaveRequstAction(seasonId)
+    const action = new SeasonStoreActions.SaveRequstAction(seasonId);
     component.saveSeason(seasonId);
 
     expect(store$.dispatch).toHaveBeenCalledWith(action);
