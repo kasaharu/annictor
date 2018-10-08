@@ -18,6 +18,7 @@ describe('SeasonComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SeasonComponent);
     component = fixture.componentInstance;
+    component.seasonId = '2020-spring';
     fixture.detectChanges();
   });
 
