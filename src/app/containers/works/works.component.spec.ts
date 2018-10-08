@@ -6,7 +6,7 @@ import { Store } from '@ngrx/store';
 import { WorksComponent } from './works.component';
 
 import { ActivatedRouteStub } from '../../testing/activated-route-stub';
-import { RootStoreModule, RootStoreState, AnimeStoreActions } from '../../root-store';
+import { RootStoreModule, RootStoreState, AnimeStoreActions, SeasonStoreActions } from '../../root-store';
 import { AnimeListComponent } from '../../components/anime-list/anime-list.component';
 import { AnimeService } from '../../services/anime.service';
 
@@ -51,6 +51,14 @@ describe('WorksComponent', () => {
     const seasonId = '2020-spring';
     const action = new AnimeStoreActions.FetchRequstAction(seasonId)
     component.fetchAnimeList(seasonId);
+
+    expect(store$.dispatch).toHaveBeenCalledWith(action);
+  });
+
+  it('call saveSeason() method', () => {
+    const seasonId = '2020-spring';
+    const action = new SeasonStoreActions.SaveRequstAction(seasonId)
+    component.saveSeason(seasonId);
 
     expect(store$.dispatch).toHaveBeenCalledWith(action);
   });
