@@ -20,4 +20,12 @@ describe('PeriodService', () => {
     const thisPeriod = service.getThisPeriod();
     expect(thisPeriod).toEqual('2020-spring');
   }));
+
+  it('call convertToDisplaySeason() method', inject([PeriodService], (service: PeriodService) => {
+    const seasonId = '2020-spring';
+    const expectedSeasonText = '2020年春';
+    const displaySeasonText = service.convertToDisplaySeason(seasonId);
+
+    expect(displaySeasonText).toEqual(expectedSeasonText);
+  }));
 });
