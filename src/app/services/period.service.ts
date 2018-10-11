@@ -46,4 +46,15 @@ export class PeriodService {
     }
     return `${year}-${seasonList[currentIndex - 1]}`;
   }
+
+  getNextSeasonId(currentSeasonId: string): string {
+    const [year, season] = currentSeasonId.split('-');
+    const seasonList = ['winter', 'spring', 'summer', 'autumn'];
+    const currentIndex = seasonList.indexOf(season);
+
+    if (currentIndex === 3) {
+      return `${+year + 1}-${seasonList[0]}`;
+    }
+    return `${year}-${seasonList[currentIndex + 1]}`;
+  }
 }

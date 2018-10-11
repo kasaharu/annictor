@@ -57,4 +57,9 @@ describe('PeriodService', () => {
     expect(service.getPreSeasonId('2020-spring')).toEqual('2020-winter');
     expect(service.getPreSeasonId('2020-winter')).toEqual('2019-autumn');
   }));
+
+  it('call getNextSeasonId() method', inject([PeriodService], (service: PeriodService) => {
+    expect(service.getNextSeasonId('2019-autumn')).toEqual('2020-winter');
+    expect(service.getNextSeasonId('2020-winter')).toEqual('2020-spring');
+  }));
 });
