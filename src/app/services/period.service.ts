@@ -35,4 +35,15 @@ export class PeriodService {
 
     return `${year}年${seasonMap[season]}`;
   }
+
+  getPreSeasonId(currentSeasonId: string): string {
+    const [year, season] = currentSeasonId.split('-');
+    const seasonList = ['winter', 'spring', 'summer', 'autumn'];
+    const currentIndex = seasonList.indexOf(season);
+
+    if (currentIndex === 0) {
+      return `${+year - 1}-${seasonList[3]}`;
+    }
+    return `${year}-${seasonList[currentIndex - 1]}`;
+  }
 }
