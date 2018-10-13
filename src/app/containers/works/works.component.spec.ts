@@ -73,4 +73,10 @@ describe('WorksComponent', () => {
     component.goToPrevSeason();
     expect(router.navigate).toHaveBeenCalledWith(['/works', '2020-winter']);
   });
+
+  it('call goToNextSeason() method', () => {
+    activatedRoute.setParamMap({ seasonId: '2020-spring' });
+    component.goToNextSeason();
+    expect(router.navigate).toHaveBeenCalledWith(['/works', '2020-summer']);
+  });
 });

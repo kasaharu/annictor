@@ -60,4 +60,11 @@ export class WorksComponent implements OnInit {
       this.router.navigate(['/works', prevSeasonId]);
     });
   }
+
+  goToNextSeason() {
+    this.season$.pipe(take(1)).subscribe(season => {
+      const nextSeasonId = this.periodService.getNextSeasonId(season.id);
+      this.router.navigate(['/works', nextSeasonId]);
+    });
+  }
 }
