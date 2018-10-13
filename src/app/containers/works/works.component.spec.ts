@@ -15,6 +15,7 @@ describe('WorksComponent', () => {
   let component: WorksComponent;
   let fixture: ComponentFixture<WorksComponent>;
   let store$: Store<RootStoreState.State>;
+  let router: Router;
   const activatedRoute = new ActivatedRouteStub({ seasonId: '' });
 
   beforeEach(async(() => {
@@ -30,6 +31,8 @@ describe('WorksComponent', () => {
       schemas: [NO_ERRORS_SCHEMA],
     })
     .compileComponents();
+
+    router = TestBed.get(Router);
     store$ = TestBed.get(Store);
     spyOn(store$, 'dispatch').and.callThrough();
   }));
@@ -63,5 +66,11 @@ describe('WorksComponent', () => {
     component.saveSeason(seasonId);
 
     expect(store$.dispatch).toHaveBeenCalledWith(action);
+  });
+
+  it('call goToPrevSeason() method', () => {
+    activatedRoute.setParamMap({ seasonId: '2020-spring' });
+    component.goToPrevSeason();
+    expect(router.navigate).toHaveBeenCalledWith(['/works', '2020-winter']);
   });
 });
