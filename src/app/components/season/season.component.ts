@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { PeriodService } from '../../services/period.service';
 
@@ -10,11 +10,18 @@ import { PeriodService } from '../../services/period.service';
 export class SeasonComponent implements OnInit {
   @Input()
   seasonId: string;
+  @Output()
+  goToPrevSeason = new EventEmitter();
+
   seasonText: string;
 
   constructor(private periodService: PeriodService) {}
 
   ngOnInit() {
     this.seasonText = this.periodService.convertToDisplaySeason(this.seasonId);
+  }
+
+  clickPrevButton() {
+    this.goToPrevSeason.emit();
   }
 }

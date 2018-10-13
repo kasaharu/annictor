@@ -25,4 +25,10 @@ describe('SeasonComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('call clickPrevButton() method', () => {
+    spyOn(component.goToPrevSeason, 'emit');
+    component.clickPrevButton();
+    expect(component.goToPrevSeason.emit).toHaveBeenCalledWith();
+  });
 });

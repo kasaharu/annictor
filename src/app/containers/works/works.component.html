@@ -1,2 +1,5 @@
-<app-season [seasonId]="(season$ | async)?.id"></app-season>
+<app-season
+  [seasonId]="(season$ | async)?.id"
+  (goToPrevSeason)="goToPrevSeason()"
+></app-season>
 <app-anime-list [animeList]="(animeList$ | async).works"></app-anime-list>
