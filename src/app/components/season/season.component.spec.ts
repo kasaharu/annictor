@@ -31,4 +31,10 @@ describe('SeasonComponent', () => {
     component.clickPrevButton();
     expect(component.goToPrevSeason.emit).toHaveBeenCalledWith();
   });
+
+  it('call clickNextButton() method', () => {
+    spyOn(component.goToNextSeason, 'emit');
+    component.clickNextButton();
+    expect(component.goToNextSeason.emit).toHaveBeenCalledWith();
+  });
 });

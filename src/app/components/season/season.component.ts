@@ -12,6 +12,8 @@ export class SeasonComponent implements OnInit {
   seasonId: string;
   @Output()
   goToPrevSeason = new EventEmitter();
+  @Output()
+  goToNextSeason = new EventEmitter();
 
   seasonText: string;
 
@@ -23,5 +25,9 @@ export class SeasonComponent implements OnInit {
 
   clickPrevButton() {
     this.goToPrevSeason.emit();
+  }
+
+  clickNextButton() {
+    this.goToNextSeason.emit();
   }
 }
