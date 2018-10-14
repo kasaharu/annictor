@@ -26,6 +26,12 @@ describe('SeasonComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('call ngOnChanges() method', () => {
+    component.seasonId = '2020-spring';
+    component.ngOnChanges();
+    expect(component.seasonText).toEqual('2020年春');
+  });
+
   it('call clickPrevButton() method', () => {
     spyOn(component.goToPrevSeason, 'emit');
     component.clickPrevButton();
