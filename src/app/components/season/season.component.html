@@ -1,7 +1,5 @@
-<div class="mod-season">
-  <mat-select (selectionChange)="selectSeason($event)">
-    <mat-option *ngFor="let season of seasonList" [value]="season.value">
-      {{season.displayName}}
-    </mat-option>
-  </mat-select>
+<div class="c-season">
+  <button (click)="clickPrevButton()">前へ</button>
+  <div class="this-season">{{seasonText}}アニメ</div>
+  <button (click)="clickNextButton()">次へ</button>
 </div>

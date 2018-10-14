@@ -7,6 +7,10 @@ export function seasonReducer(state: State = initialState, action: ActionsUnion)
       return state;
     case ActionTypes.FETCH_SUCCESS:
       return { season: action.payload };
+    case ActionTypes.SAVE_REQUEST:
+      return state;
+    case ActionTypes.SAVE_SUCCESS:
+      return { season: action.payload };
     default:
       return state;
   }

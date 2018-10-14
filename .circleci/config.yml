@@ -49,6 +49,8 @@ jobs:
       - *restore_node_modules
       - run: yarn prebuild
       - run: yarn test:1
+      - store_artifacts:
+          path: coverage
   e2e:
     docker:
       - image: circleci/node:8.12.0-stretch-browsers

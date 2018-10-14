@@ -1,24 +1,33 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnChanges, Input, Output, EventEmitter } from '@angular/core';
+
+import { PeriodService } from '../../services/period.service';
 
 @Component({
   selector: 'app-season',
   templateUrl: './season.component.html',
   styleUrls: ['./season.component.scss'],
 })
-export class SeasonComponent implements OnInit {
-  @Output() selected = new EventEmitter<string>();
-  seasonList = [
-    { value: '2018-winter' , displayName: '2018年冬' },
-    { value: '2018-spring' , displayName: '2018年春' },
-    { value: '2018-summer' , displayName: '2018年夏' },
-  ];
+export class SeasonComponent implements OnChanges {
+  @Input()
+  seasonId: string;
+  @Output()
+  goToPrevSeason = new EventEmitter();
+  @Output()
+  goToNextSeason = new EventEmitter();
 
-  constructor() { }
+  seasonText: string;
 
-  ngOnInit() {
+  constructor(private periodService: PeriodService) {}
+
+  ngOnChanges() {
+    this.seasonText = this.periodService.convertToDisplaySeason(this.seasonId);
   }
 
-  selectSeason($event) {
-    this.selected.emit($event.value);
+  clickPrevButton() {
+    this.goToPrevSeason.emit();
+  }
+
+  clickNextButton() {
+    this.goToNextSeason.emit();
   }
 }
