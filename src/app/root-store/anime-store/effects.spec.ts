@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
+import { EffectsMetadata, getEffectsMetadata } from '@ngrx/effects';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable, of as observableOf } from 'rxjs';
 import { hot, cold } from 'jasmine-marbles';
@@ -9,9 +10,10 @@ import * as AnimeStoreActions from './actions';
 
 import { AnimeService } from '../../services/anime.service';
 
-fdescribe('AnimeStoreEffects', () => {
+describe('AnimeStoreEffects', () => {
   let effects: AnimeStoreEffects;
   let actions: Observable<any>;
+  let metadata: EffectsMetadata<AnimeStoreEffects>;
   let animeService: AnimeService;
 
   beforeEach(() => {
@@ -26,6 +28,7 @@ fdescribe('AnimeStoreEffects', () => {
 
     effects = TestBed.get(AnimeStoreEffects);
     animeService = TestBed.get(AnimeService);
+    metadata = getEffectsMetadata(effects);
   });
 
   it('exec fetch$ effect ', () => {
@@ -40,5 +43,9 @@ fdescribe('AnimeStoreEffects', () => {
     spyOn(animeService, 'fetchAnimeList').and.returnValue(observableOf(animeList));
 
     expect(effects.fetch$).toBeObservable(expected);
+  });
+
+  it('check fetch$ metadata', () => {
+    expect(metadata.fetch$).toEqual({ dispatch: true });
   });
 });
