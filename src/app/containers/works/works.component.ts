@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 import {
   RootStoreState,
@@ -51,5 +52,19 @@ export class WorksComponent implements OnInit {
 
   saveSeason(seasonId: string) {
     this.store$.dispatch(new SeasonStoreActions.SaveRequstAction(seasonId));
+  }
+
+  goToPrevSeason() {
+    this.season$.pipe(take(1)).subscribe(season => {
+      const prevSeasonId = this.periodService.getPreSeasonId(season.id);
+      this.router.navigate(['/works', prevSeasonId]);
+    });
+  }
+
+  goToNextSeason() {
+    this.season$.pipe(take(1)).subscribe(season => {
+      const nextSeasonId = this.periodService.getNextSeasonId(season.id);
+      this.router.navigate(['/works', nextSeasonId]);
+    });
   }
 }
