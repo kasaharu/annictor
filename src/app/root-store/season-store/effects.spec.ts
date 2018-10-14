@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
+import { EffectsMetadata, getEffectsMetadata } from '@ngrx/effects';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable } from 'rxjs';
 import { hot, cold } from 'jasmine-marbles';
@@ -10,6 +11,7 @@ import * as SeasonStoreActions from './actions';
 describe('SeasonStoreEffects', () => {
   let effects: SeasonStoreEffects;
   let actions: Observable<any>;
+  let metadata: EffectsMetadata<SeasonStoreEffects>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -21,6 +23,7 @@ describe('SeasonStoreEffects', () => {
     });
 
     effects = TestBed.get(SeasonStoreEffects);
+    metadata = getEffectsMetadata(effects);
   });
 
   it('exec save$ effect ', () => {
@@ -34,5 +37,9 @@ describe('SeasonStoreEffects', () => {
     const expected = cold('--b', { b: completion });
 
     expect(effects.save$).toBeObservable(expected);
+  });
+
+  it('check save$ metadata', () => {
+    expect(metadata.save$).toEqual({ dispatch: true });
   });
 });
