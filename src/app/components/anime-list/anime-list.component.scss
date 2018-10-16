@@ -1,71 +1,29 @@
 @import '../../../assets/styles/_mixin';
 
-.mod-anime-list {
+.c-anime-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-around;
+
   .anime-item {
-    display: flex;
-    height: 10rem;
-    border-bottom: solid 1px #e1e4e8;
+    margin: 1rem;
+    width: 20rem;
+    height: 14rem;
+  }
 
-    @include sp-display {
-      flex-direction: column;
-      height: auto;
-      padding: 16px 0;
-    }
+  .item-title {
+    font-size: 0.8rem;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: 1rem;
+  }
 
-    .item-thumbnail-wrapper {
-      align-self: center;
-      width: 10rem;
-
-      @include sp-display {
-        width: auto;
-        height: 10rem;
-      }
-    }
-
-    .item-thumbnail {
-      width: 10rem;
-      height: auto;
-
-      @include sp-display {
-        width: auto;
-        height: 10rem;
-      }
-    }
-
-    .item-contents {
-      width: calc(100% - 10rem);
-      padding-left: 1rem;
-
-      @include sp-display {
-        width: 100%;
-        padding-left: 0;
-      }
-    }
-
-    .item-title {
-      font-size: 1.2rem;
-      font-weight: bold;
-      margin: 0.5rem 0;
-
-      @include sp-display {
-        font-size: 1rem;
-        padding: 0 0.5rem;
-      }
-    }
-
-    .item-watchers-count {
-      margin-bottom: 0.5rem;
-
-      @include sp-display {
-        padding: 0 0.5rem;
-      }
-    }
-
-    .item-link-btn-wrapper {
-      @include sp-display {
-        display: flex;
-        justify-content: center;
-      }
-    }
+  .item-thumbnail {
+    width: 20rem;
+    height: auto;
   }
 }
