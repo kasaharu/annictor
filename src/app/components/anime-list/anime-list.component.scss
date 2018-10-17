@@ -27,3 +27,10 @@
     height: auto;
   }
 }
+
+@include sp-display {
+  .c-anime-list {
+    flex-direction: column;
+    align-items: center;
+  }
+}
