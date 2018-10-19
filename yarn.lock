@@ -3010,9 +3010,9 @@ find-up@^2.1.0:
   dependencies:
     locate-path "^2.0.0"
 
-firebase-tools@5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-5.0.1.tgz#313e18fc830fb1188401f587d8bccb1cf5f01286"
+firebase-tools@5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-5.1.1.tgz#0e693c6197bdc4562fd3040d7bbb7e23b5dc415c"
   dependencies:
     JSONStream "^1.2.1"
     archiver "^2.1.1"
