@@ -35,7 +35,7 @@
     "zone.js": "0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.10.0",
+    "@angular-devkit/build-angular": "0.10.2",
     "@angular/cli": "7.0.2",
     "@angular/compiler-cli": "7.0.0",
     "@angular/language-service": "7.0.0",
@@ -43,7 +43,7 @@
     "@types/jasminewd2": "2.0.5",
     "@types/node": "6.0.103",
     "codelyzer": "4.5.0",
-    "ejs": "^2.6.1",
+    "ejs": "2.6.1",
     "firebase-tools": "5.1.1",
     "jasmine-core": "3.2.1",
     "jasmine-marbles": "0.4.0",
