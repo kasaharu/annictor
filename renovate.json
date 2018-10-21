@@ -6,7 +6,12 @@
   "assignees": ["kasaharu"],
   "reviewers": ["kasaharu"],
   "patch": { "automerge": true },
-  "devDependencies": { "automerge": true },
+  "devDependencies": {
+    "automerge": true,
+    "major": {
+      "automerge": false
+    }
+  },
   "schedule": ["every weekend"],
   "labels": ["Renovate"],
   "packageRules": [
