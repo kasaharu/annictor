@@ -24,6 +24,7 @@ describe('AnimeDetailComponent', () => {
   }));
 
   beforeEach(() => {
+    router = TestBed.get(Router);
     fixture = TestBed.createComponent(AnimeDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -31,6 +32,14 @@ describe('AnimeDetailComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('不正なパラメータが与えられた場合 / にリダイレクト', () => {
+    activatedRoute.setParamMap({ workId: 'invalid-work-id' });
+
+    const spy = router.navigate as jasmine.Spy;
+    const navigationArgs = spy.calls.first().args[0];
+    expect(navigationArgs).toEqual(['/']);
   });
 
   describe('call invalidWorkId() method', () => {
