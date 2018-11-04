@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-anime-detail',
@@ -7,8 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnimeDetailComponent implements OnInit {
 
-  constructor() {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.route.paramMap.subscribe((params) => {
+      const workId = params.get('workId');
+      if (this.invalidWorkId(workId)) {
+        this.router.navigate(['/']);
+      }
+    });
+  }
 
+  invalidWorkId(workId: string): boolean {
+    return isNaN(+(workId));
+  }
 }
