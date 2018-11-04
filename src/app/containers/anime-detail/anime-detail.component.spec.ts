@@ -32,4 +32,14 @@ describe('AnimeDetailComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('call invalidWorkId() method', () => {
+    it('valid param', () => {
+      expect(component.invalidWorkId('2020')).toBeFalsy();
+    });
+
+    it('invalid param', () => {
+      expect(component.invalidWorkId('2020-spring')).toBeTruthy();
+    });
+  });
 });
