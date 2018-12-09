@@ -16,7 +16,7 @@ references:
 jobs:
   package_install:
     docker:
-      - image: circleci/node:8.12.0-stretch-browsers
+      - image: circleci/node:8.14.0-stretch-browsers
     steps:
       - checkout
       - run: echo "Start installing the packages"
@@ -26,7 +26,7 @@ jobs:
 
   build:
     docker:
-      - image: circleci/node:8.12.0-stretch-browsers
+      - image: circleci/node:8.14.0-stretch-browsers
     steps:
       - checkout
       - run: echo "Start build"
@@ -34,7 +34,7 @@ jobs:
       - run: yarn build
   lint:
     docker:
-      - image: circleci/node:8.12.0-stretch-browsers
+      - image: circleci/node:8.14.0-stretch-browsers
     steps:
       - checkout
       - run: echo "Start lint"
@@ -42,7 +42,7 @@ jobs:
       - run: yarn lint
   test:
     docker:
-      - image: circleci/node:8.12.0-stretch-browsers
+      - image: circleci/node:8.14.0-stretch-browsers
     steps:
       - checkout
       - run: echo "Start test"
@@ -53,7 +53,7 @@ jobs:
           path: coverage
   e2e:
     docker:
-      - image: circleci/node:8.12.0-stretch-browsers
+      - image: circleci/node:8.14.0-stretch-browsers
     steps:
       - checkout
       - run: echo "Start e2e"
@@ -62,7 +62,7 @@ jobs:
       - run: yarn e2e
   deploy:
     docker:
-      - image: circleci/node:8.12.0-stretch-browsers
+      - image: circleci/node:8.14.0-stretch-browsers
     steps:
       - checkout
       - run: echo "Start deploy"
