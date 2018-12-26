@@ -16,7 +16,7 @@ references:
 jobs:
   package_install:
     docker:
-      - image: circleci/node:8.14.0-stretch-browsers
+      - image: circleci/node:8.14.1-stretch-browsers
     steps:
       - checkout
       - run: echo "Start installing the packages"
