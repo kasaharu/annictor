@@ -18,6 +18,7 @@ import { SeasonComponent } from './components/season/season.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { RootStoreModule } from './root-store';
 import { WorksComponent } from './containers/works/works.component';
+import { AnimeDetailComponent } from './containers/anime-detail/anime-detail.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { WorksComponent } from './containers/works/works.component';
     AnimeListComponent,
     SeasonComponent,
     WorksComponent,
+    AnimeDetailComponent,
   ],
   imports: [
     BrowserModule,

@@ -28,4 +28,15 @@ describe('AnimeService', () => {
     expect(req.request.method).toEqual('GET');
     httpTestingController.verify();
   }));
+
+  it('call fetchAnimeDetail() method', inject([AnimeService], (service: AnimeService) => {
+    const workId = 5550;
+    const targetUrl =
+      `https://api.annict.com/v1/episodes?access_token=${service.ANNICT_API_KEY}&filter_work_id=${workId}`;
+
+    service.fetchAnimeDetail(workId).subscribe();
+    const req = httpTestingController.expectOne(targetUrl);
+    expect(req.request.method).toEqual('GET');
+    httpTestingController.verify();
+  }));
 });
