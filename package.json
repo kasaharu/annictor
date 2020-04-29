@@ -42,7 +42,7 @@
     "@types/jasmine": "3.3.5",
     "@types/jasminewd2": "2.0.6",
     "@types/node": "6.14.1",
-    "codelyzer": "4.5.0",
+    "codelyzer": "5.2.2",
     "ejs": "2.6.1",
     "firebase-tools": "5.1.1",
     "jasmine-core": "3.3.0",
